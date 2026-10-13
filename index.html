@@ -1,1 +1,87 @@
-"# Student" 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+</head>
+<body>
+
+    <h1>Student Management System</h1>
+
+    <h2>Add Student Details</h2>
+
+    <form>
+        <label>Student Name:</label>
+        <input type="text" placeholder="Enter student name" required>
+        <br><br>
+
+        <label>Roll Number:</label>
+        <input type="text" placeholder="Enter roll number" required>
+        <br><br>
+
+        <label>Department:</label>
+        <select>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>IT</option>
+            <option>AI & DS</option>
+        </select>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter email" required>
+        <br><br>
+
+        <button type="button" onclick="addStudent()">Add Student</button>
+    </form>
+
+    <h2>Student Details</h2>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll Number</th>
+                <th>Department</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="studentList"></tbody>
+    </table>
+
+    <script>
+        function addStudent() {
+            let name = document.querySelector(
+                'input[placeholder="Enter student name"]'
+            ).value;
+
+            let roll = document.querySelector(
+                'input[placeholder="Enter roll number"]'
+            ).value;
+
+            let department = document.querySelector("select").value;
+
+            let email = document.querySelector(
+                'input[type="email"]'
+            ).value;
+
+            if (name === "" || roll === "" || email === "") {
+                alert("Please fill all the fields");
+                return;
+            }
+
+            let table = document.getElementById("studentList");
+            let row = table.insertRow();
+
+            row.insertCell(0).textContent = name;
+            row.insertCell(1).textContent = roll;
+            row.insertCell(2).textContent = department;
+            row.insertCell(3).textContent = email;
+
+            document.querySelector("form").reset();
+        }
+    </script>
+
+</body>
+</html>
+```
